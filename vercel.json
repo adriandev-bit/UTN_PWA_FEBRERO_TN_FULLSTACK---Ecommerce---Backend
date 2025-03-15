@@ -1,11 +1,11 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/server.js", "use": "@vercel/node" },
-    { "src": "FRONTEND/package.json", "use": "@vercel/static-build" }
+    { "src": "src/server.js", "use": "@vercel/node" }
+
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "src/server.js" },
-    { "src": "/api/(.*)", "dest": "FRONTEND/build/$1" }
+    { "src": "/(.*)", "dest": "src/server.js" }
+
   ]
 }

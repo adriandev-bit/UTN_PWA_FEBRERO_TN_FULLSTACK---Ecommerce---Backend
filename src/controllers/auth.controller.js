@@ -132,7 +132,8 @@ export const loginController = async (req, res) => {
             status: 200,
             message: 'Logged',
             data: {
-                authorization_token
+                authorization_token,
+                username: user_found.username
             }
         })
     } catch (error) {

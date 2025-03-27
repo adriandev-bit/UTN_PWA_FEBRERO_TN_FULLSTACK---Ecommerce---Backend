@@ -5,8 +5,11 @@ import mongoose from "./config/mongoDB.config.js";
 import { sendMail } from "./utils/mailer.utils.js";
 import cors from 'cors';
 import { authMiddleware } from "./middlewares/authMiddleware.js";
-import workspace_router from "./routes/workspace.router.js";
-import channelRouter from "./routes/channel.router.js";
+import categoryRouter from "./routes/category.router.js";  
+import productRouter from "./routes/product.router.js";  
+import cartRouter from "./routes/cart.router.js";  
+import reviewRouter from './routes/review.router.js';  
+
 
 const app = express();
 
@@ -22,10 +25,14 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use('/api/auth', authRouter);
-app.use('/api/workspaces', workspace_router);
-app.use('/api/channels', channelRouter);
 
+app.use('/api/auth', authRouter);
+app.use('/api/categories', categoryRouter);
+app.use('/api/products', productRouter);
+app.use('/api/cart', cartRouter); 
+app.use('/api/reviews', reviewRouter);  
+
+// Endpoint de prueba (para comprobar autenticación y compra)
 app.get('/api/test/comprar', authMiddleware, (req, res) => {
     console.log(req.user);
     res.json({
@@ -33,6 +40,8 @@ app.get('/api/test/comprar', authMiddleware, (req, res) => {
     });
 });
 
+// Conectar a la base de datos de MongoDB
 app.listen(ENVIROMENT.PORT, () => {
     console.log(`El servidor se está ejecutando en http://localhost:${ENVIROMENT.PORT}`);
 });
+

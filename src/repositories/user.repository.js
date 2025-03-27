@@ -20,11 +20,11 @@ class UserRepository {
             
             if(error.code === 11000){
                 if(error.keyPattern.username){
-                    throw new ServerError("Username already registered", 400)
+                    throw new ServerError("Username ya registrado", 400)
                 }
                 if(error.keyPattern.email){
                     
-                    throw new ServerError("Email already registered", 400)
+                    throw new ServerError("Email ya registrado", 400)
                 }
             }
             console.log('Error al crear el usuario', error)

@@ -82,7 +82,7 @@ export const verifyEmailController = async (req, res) => {
         const payload = jwt.verify(verification_token, ENVIROMENT.SECRET_KEY_JWT)
         const {email} = payload
         const user_found = await UserRepository.verifyUserByEmail(email)
-        res.redirect('https://utn-pwa-febrero-tn-fullstack-ecommerce-frontend.vercel.app/login');
+        res.redirect('https://utn-pwa-febrero-tn-fullstack-ecommerce-frontend.vercel.app');
     } catch (error) {
         console.log("error al registrar", error);
 

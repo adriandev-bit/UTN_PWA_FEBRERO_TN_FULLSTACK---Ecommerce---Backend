@@ -9,7 +9,7 @@ const ENVIRONMENT = {
     SECRET_KEY_JWT: process.env.SECRET_KEY_JWT,
     GMAIL_USERNAME: process.env.GMAIL_USERNAME,
     GMAIL_PASSWORD: process.env.GMAIL_PASSWORD,
-    URL_BACKEND: process.env.URL_BACKEND || 'http://localhost:3000',
+    URL_BACKEND: process.env.URL_BACKEND, //|| 'http://localhost:3000',
     URL_FRONTEND: process.env.URL_FRONTEND || 'http://localhost:5173'
 }
 

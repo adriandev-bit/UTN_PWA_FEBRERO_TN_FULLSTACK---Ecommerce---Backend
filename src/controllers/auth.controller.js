@@ -44,7 +44,7 @@ export const registerController = async (req, res) => {
             <p>
             Esta validacion es para asegurarnos que tu mail es realmente tuyo, si no te has registrado en (nombre de la empresa) entonces ignora este mail!
             </p>
-            <a href='${ENVIROMENT.URL_BACKEND}/api/auth/verify-email?verification_token=${verification_token}'>
+            <a href='https://utn-pwa-febrero-tn-fullstack-ecommerce-backend.vercel.app/api/auth/verify-email?verification_token=${verification_token}'>
                 Verificar cuenta
             </a>
             `
@@ -82,7 +82,7 @@ export const verifyEmailController = async (req, res) => {
         const payload = jwt.verify(verification_token, ENVIROMENT.SECRET_KEY_JWT)
         const {email} = payload
         const user_found = await UserRepository.verifyUserByEmail(email)
-        res.redirect(ENVIROMENT.URL_FRONTEND + '/login')
+        res.redirect('https://utn-pwa-febrero-tn-fullstack-ecommerce-frontend.vercel.app/login');
     } catch (error) {
         console.log("error al registrar", error);
 
